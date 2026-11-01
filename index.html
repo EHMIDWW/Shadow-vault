@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090f">
+<title>Shadow Vault — Your personal collection</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#09090f;--panel:#11111b;--panel2:#171724;--line:rgba(255,255,255,.08);--muted:#9292a8;--text:#f4f2ff;--purple:#9b7bff;--pink:#df7cff;--green:#7ee0b0;--shadow:0 18px 55px rgba(0,0,0,.38)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,rgba(122,82,220,.17),transparent 38%),radial-gradient(ellipse at 0% 45%,rgba(61,49,120,.10),transparent 34%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:265px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--line);padding:28px 18px;background:rgba(10,10,17,.72);backdrop-filter:blur(18px);display:flex;flex-direction:column;gap:26px}.brand{display:flex;align-items:center;gap:12px;padding:0 8px}.brand-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#a88aff,#6543bf);box-shadow:0 8px 26px #8056e744;font-size:20px}.brand-name{font:700 17px 'Space Grotesk';letter-spacing:1.6px}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:2.5px;margin-top:3px}.side-label{font-size:10px;letter-spacing:1.8px;color:#77778e;font-weight:700;padding:0 10px;margin-bottom:8px}.nav-list{display:grid;gap:5px}.nav-btn,.list-btn{border:0;color:#b9b8c9;background:transparent;border-radius:11px;padding:11px 12px;display:flex;align-items:center;gap:11px;text-align:left;width:100%;transition:.2s}.nav-btn:hover,.list-btn:hover{background:#ffffff09;color:white}.nav-btn.active,.list-btn.active{background:linear-gradient(100deg,#8e6aff25,#8e6aff0c);color:#d9ceff;box-shadow:inset 2px 0 #a88aff}.nav-icon{width:20px;text-align:center;font-size:16px}.count{margin-left:auto;color:#85849a;font-size:11px}.list-head{display:flex;align-items:center;justify-content:space-between;padding:0 10px}.icon-btn{border:1px solid var(--line);background:#ffffff08;color:#c9c6d8;width:32px;height:32px;border-radius:10px}.icon-btn:hover{border-color:#9b7bff88;color:white}.sidebar-bottom{margin-top:auto;border:1px solid var(--line);background:linear-gradient(145deg,#171525,#101019);border-radius:15px;padding:14px}.sidebar-bottom strong{font:600 12px 'Space Grotesk'}.sidebar-bottom p{color:var(--muted);font-size:11px;line-height:1.6;margin:7px 0 0}.main{min-width:0;padding:34px clamp(18px,4vw,56px) 60px;max-width:1500px;width:100%;margin:0 auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}.eyebrow{font-size:10px;letter-spacing:2.5px;color:var(--purple);font-weight:700;text-transform:uppercase}.page-title{font:700 clamp(27px,4vw,38px) 'Space Grotesk';letter-spacing:-1.2px;margin:7px 0 5px}.subtitle{color:var(--muted);font-size:13px}.top-actions{display:flex;gap:9px;align-items:center}.search-wrap{position:relative}.search-wrap span{position:absolute;left:13px;top:10px;color:#85849a}.search{width:min(260px,34vw);background:#11111b;border:1px solid var(--line);color:white;border-radius:11px;padding:10px 12px 10px 36px;outline:none}.search:focus,input:focus,textarea:focus,select:focus{border-color:#9b7bff99!important;box-shadow:0 0 0 3px #9b7bff1a}.btn{border:1px solid var(--line);border-radius:11px;padding:10px 14px;color:#e9e5ff;background:#ffffff08;font-weight:600;font-size:12px;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:#9b7bff77}.btn.primary{border:0;background:linear-gradient(115deg,#9a79ff,#754fd0);color:white;box-shadow:0 8px 22px #8056e733}.btn.small{padding:8px 11px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-bottom:30px}.stat{border:1px solid var(--line);border-radius:15px;padding:17px 18px;background:linear-gradient(145deg,#151521dd,#101019dd);box-shadow:var(--shadow)}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:11px}.stat-icon{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:#9b7bff1b;color:#c4afff}.stat-num{font:700 26px 'Space Grotesk';margin-top:10px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 15px}.section-title{font:600 17px 'Space Grotesk'}.section-note{font-size:11px;color:var(--muted)}.list-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:13px;margin-bottom:32px}.list-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:17px;background:linear-gradient(145deg,#171725,#101019);min-height:130px;cursor:pointer;transition:.22s}.list-card:before{content:"";position:absolute;width:130px;height:130px;right:-55px;top:-65px;border-radius:50%;background:var(--glow,#9b7bff);filter:blur(55px);opacity:.25}.list-card:hover{transform:translateY(-3px);border-color:#9b7bff70}.list-card.selected{border-color:#a78aff99;box-shadow:0 0 0 1px #a78aff22}.list-emoji{font-size:23px}.list-card h3{font:600 14px 'Space Grotesk';margin:13px 0 5px}.list-card p{font-size:11px;color:var(--muted);margin:0}.list-card .arrow{position:absolute;right:15px;bottom:15px;color:#77748d}.items-section{border:1px solid var(--line);background:#101019bd;border-radius:17px;padding:19px}.items-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}.filter-select{background:#171724;border:1px solid var(--line);border-radius:9px;color:#c9c6d8;padding:8px 10px;font-size:11px;outline:none}.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:11px}.item{background:linear-gradient(145deg,#191925,#13131d);border:1px solid var(--line);border-radius:13px;padding:14px;min-width:0;transition:.2s}.item:hover{border-color:#8f74dc66}.item-top{display:flex;align-items:flex-start;gap:10px}.type-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:#9b7bff19;display:grid;place-items:center;font-size:16px}.item-info{min-width:0;flex:1}.item-info h4{font:600 13px 'Space Grotesk';margin:1px 0 5px;overflow-wrap:anywhere}.item-type{font-size:10px;color:#a995e8}.item-actions{display:flex;gap:4px}.mini{border:0;background:transparent;color:#85849a;padding:3px;font-size:14px}.mini:hover{color:white}.item-notes{font-size:11px;color:#a3a1b3;line-height:1.55;margin:12px 0 9px;white-space:pre-wrap;overflow-wrap:anywhere}.item-link{display:block;color:#b8a5ff;font-size:10px;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:8px}.item-link:hover{text-decoration:underline}.item-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:9px;border-top:1px solid #ffffff0a;color:#77768a;font-size:9px}.empty{padding:38px 15px;text-align:center;color:var(--muted)}.empty .big{font-size:32px;margin-bottom:10px}.empty strong{display:block;color:#dedbea;font:600 14px 'Space Grotesk';margin-bottom:6px}.empty p{font-size:11px;margin:0 0 15px}.modal-backdrop{position:fixed;inset:0;background:#05050bd9;backdrop-filter:blur(9px);z-index:20;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.show{display:flex}.modal{width:min(490px,100%);max-height:90vh;overflow:auto;background:#151520;border:1px solid #ffffff18;border-radius:19px;padding:22px;box-shadow:0 25px 90px #000b}.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.modal-head h2{font:600 18px 'Space Grotesk';margin:0}.close{border:0;background:#ffffff0b;color:#aaa8bb;border-radius:8px;width:30px;height:30px}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:11px;color:#b9b6c8;font-weight:600}.field input,.field textarea,.field select{width:100%;background:#0d0d15;border:1px solid #ffffff16;border-radius:10px;padding:11px 12px;color:#f4f2ff;outline:none;font-size:12px}.field textarea{min-height:82px;resize:vertical}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:19px}.emoji-picks{display:flex;gap:7px;flex-wrap:wrap}.emoji-picks button{border:1px solid var(--line);background:#ffffff08;border-radius:8px;padding:7px;font-size:17px}.emoji-picks button.chosen{border-color:#a78aff;background:#9b7bff22}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#242235;border:1px solid #ffffff1a;color:white;padding:11px 16px;border-radius:11px;font-size:12px;z-index:50;transition:.25s;box-shadow:var(--shadow)}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-brand{display:none}
+@media(max-width:850px){.app{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:5;padding:12px 15px;border-right:0;border-bottom:1px solid var(--line);flex-direction:row;align-items:center;gap:15px}.brand{padding:0}.brand-mark{width:34px;height:34px}.brand-name{font-size:14px}.brand-sub{font-size:8px}.sidebar .side-label,.sidebar .nav-list,.sidebar-bottom{display:none}.list-head{margin-left:auto;padding:0}.list-head .side-label{display:none}.sidebar .list-head{display:flex}.sidebar #listNav{display:none}.main{padding-top:25px}}@media(max-width:560px){.main{padding:22px 14px 45px}.topbar{align-items:flex-start;flex-direction:column;margin-bottom:23px}.top-actions{width:100%}.search-wrap{flex:1}.search{width:100%}.top-actions .btn{white-space:nowrap}.stats{gap:8px}.stat{padding:12px}.stat-num{font-size:21px}.stat-top{font-size:9px}.stat-icon{width:25px;height:25px}.list-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.list-card{padding:13px;min-height:120px}.items-section{padding:13px}.items-toolbar{align-items:flex-start;flex-direction:column}.items-grid{grid-template-columns:1fr}.field-row{grid-template-columns:1fr}.section-note{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">✦</div><div><div class="brand-name">SHADOW VAULT</div><div class="brand-sub">YOUR PERSONAL ARCHIVE</div></div></div>
+  <div style="flex:1">
+    <div class="side-label">LIBRARY</div>
+    <div class="nav-list">
+      <button class="nav-btn active" data-view="all"><span class="nav-icon">▦</span> All items <span class="count" id="allCount">0</span></button>
+      <button class="nav-btn" data-view="favorites"><span class="nav-icon">★</span> Favorites <span class="count" id="favCount">0</span></button>
+    </div>
+  </div>
+  <div style="flex:2;min-width:0">
+    <div class="list-head"><div class="side-label">MY WISHLISTS</div><button class="icon-btn" id="addListSide" title="Create wishlist">＋</button></div>
+    <div class="nav-list" id="listNav"></div>
+  </div>
+  <div class="sidebar-bottom"><strong>✧ A space for everything</strong><p>Save the things you love, the links you need, and the ideas you don't want to lose.</p></div>
+</aside>
+<main class="main">
+  <header class="topbar">
+    <div><div class="eyebrow">YOUR PRIVATE COLLECTION</div><h1 class="page-title" id="pageTitle">Your vault.</h1><div class="subtitle" id="pageSubtitle">Everything worth remembering, in one place.</div></div>
+    <div class="top-actions"><div class="search-wrap"><span>⌕</span><input class="search" id="search" placeholder="Search your vault..." autocomplete="off"></div><button class="btn" id="exportBtn">↥ Export</button><button class="btn primary" id="addItemBtn">＋ Add item</button></div>
+  </header>
+  <section class="stats">
+    <div class="stat"><div class="stat-top">TOTAL SAVED <span class="stat-icon">◈</span></div><div class="stat-num" id="statItems">0</div></div>
+    <div class="stat"><div class="stat-top">WISHLISTS <span class="stat-icon">▤</span></div><div class="stat-num" id="statLists">0</div></div>
+    <div class="stat"><div class="stat-top">FAVORITES <span class="stat-icon">✦</span></div><div class="stat-num" id="statFav">0</div></div>
+  </section>
+  <section id="listsSection">
+    <div class="section-head"><div class="section-title">Your collections</div><div class="section-note">Choose a collection to explore</div></div>
+    <div class="list-grid" id="listGrid"></div>
+  </section>
+  <section class="items-section">
+    <div class="items-toolbar"><div><div class="section-title" id="itemsTitle">All saved items</div><div class="section-note" id="itemsSub">Your saved links, names and notes</div></div><select class="filter-select" id="typeFilter"><option value="all">All types</option><option>Anime</option><option>Reel</option><option>Telegram</option><option>Website</option><option>Video</option><option>Game</option><option>Other</option></select></div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </section>
+  <input type="file" id="importFile" accept="application/json,.json" hidden>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true"><div class="modal-head"><h2 id="modalTitle">Add item</h2><button class="close" id="closeModal">✕</button></div><form id="modalForm"><div id="modalFields"></div><div class="modal-actions"><button type="button" class="btn" id="cancelModal">Cancel</button><button type="submit" class="btn primary" id="saveModal">Save to vault</button></div></form></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='shadowVault.v1';
+const defaultData={lists:[
+{id:'anime',name:'Anime Watchlist',emoji:'⛩️',color:'#9b7bff',desc:'Series to watch and remember'},
+{id:'reels',name:'Reels Collection',emoji:'🎞️',color:'#e879b5',desc:'Instagram reels and short videos'},
+{id:'telegram',name:'Telegram Finds',emoji:'✈️',color:'#55b9dc',desc:'Channels, groups and usernames'},
+{id:'web',name:'Web Bookmarks',emoji:'🌐',color:'#7dd6ad',desc:'Useful websites and links'}
+],items:[]};
+let data=loadData(),view='all',activeList=null,editingItem=null,editingList=null,selectedEmoji='📁';
+const $=id=>document.getElementById(id);
+function loadData(){try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.lists)&&Array.isArray(d.items))return d}catch(e){}return structuredClone(defaultData)}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function safeUrl(raw=''){let s=raw.trim();if(!s)return '';if(!/^https?:\/\//i.test(s))s='https://'+s;try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function typeIcon(t){return ({Anime:'⛩️',Reel:'🎞️',Telegram:'✈️',Website:'🌐',Video:'▶️',Game:'🎮',Other:'✦'})[t]||'✦'}
+function currentItems(){let arr=[...data.items];if(view==='favorites')arr=arr.filter(x=>x.favorite);else if(view!=='all')arr=arr.filter(x=>x.listId===view);const q=$('search').value.toLowerCase().trim();if(q)arr=arr.filter(x=>[x.title,x.type,x.url,x.identifier,x.notes].join(' ').toLowerCase().includes(q));const type=$('typeFilter').value;if(type!=='all')arr=arr.filter(x=>x.type===type);return arr.sort((a,b)=>Number(b.favorite)-Number(a.favorite)||b.created-a.created)}
+function render(){
+ const list=data.lists,items=data.items;
+ $('allCount').textContent=items.length;$('favCount').textContent=items.filter(x=>x.favorite).length;
+ $('statItems').textContent=items.length;$('statLists').textContent=list.length;$('statFav').textContent=items.filter(x=>x.favorite).length;
+ $('listNav').innerHTML=list.map(l=>`<button class="list-btn ${view===l.id?'active':''}" data-list="${esc(l.id)}"><span class="nav-icon">${esc(l.emoji)}</span><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(l.name)}</span><span class="count">${items.filter(x=>x.listId===l.id).length}</span></button>`).join('');
+ $('listGrid').innerHTML=list.length?list.map(l=>`<div class="list-card ${view===l.id?'selected':''}" data-card="${esc(l.id)}" style="--glow:${esc(l.color||'#9b7bff')}"><div class="list-emoji">${esc(l.emoji)}</div><h3>${esc(l.name)}</h3><p>${items.filter(x=>x.listId===l.id).length} saved · ${esc(l.desc||'Your collection')}</p><span class="arrow">↗</span></div>`).join(''):'<div class="empty">No collections yet.</div>';
+ const active=list.find(l=>l.id===view);
+ $('pageTitle').textContent=view==='all'?'Your vault.':view==='favorites'?'Your favorites.':active?.name||'Your vault.';
+ $('pageSubtitle').textContent=view==='all'?'Everything worth remembering, in one place.':view==='favorites'?'The things you marked as important.':active?.desc||'Your personal collection.';
+ $('itemsTitle').textContent=view==='all'?'All saved items':view==='favorites'?'Favorite items':`Inside ${active?.name||'collection'}`;
+ $('itemsSub').textContent=`${currentItems().length} item${currentItems().length===1?'':'s'} · Stored in this browser`;
+ const arr=currentItems();
+ $('itemsGrid').innerHTML=arr.length?arr.map(x=>`<article class="item"><div class="item-top"><div class="type-icon">${typeIcon(x.type)}</div><div class="item-info"><h4>${esc(x.title)}</h4><div class="item-type">${esc(x.type)}${x.identifier?' · '+esc(x.identifier):''}</div></div><div class="item-actions"><button class="mini" data-fav="${esc(x.id)}" title="Favorite">${x.favorite?'★':'☆'}</button><button class="mini" data-edit="${esc(x.id)}" title="Edit">✎</button><button class="mini" data-del="${esc(x.id)}" title="Delete">⌫</button></div></div>${x.notes?`<div class="item-notes">${esc(x.notes)}</div>`:''}${x.url?`<a class="item-link" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener noreferrer">↗ ${esc(x.url)}</a>`:''}<div class="item-footer"><span>${esc(list.find(l=>l.id===x.listId)?.name||'Unsorted')}</span><span>${new Date(x.created).toLocaleDateString()}</span></div></article>`).join(''):`<div class="empty" style="grid-column:1/-1"><div class="big">${$('search').value?'⌕':'✧'}</div><strong>${$('search').value?'No matching items':'Nothing saved here yet'}</strong><p>${$('search').value?'Try another search term or change the filter.':'Add a link, name, ID or note to start building your collection.'}</p><button class="btn primary small" id="emptyAdd">＋ Add your first item</button></div>`;
+ document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+}
+function openModal(kind,record=null){
+ editingItem=kind==='item'?record:null;editingList=kind==='list'?record:null;
+ $('modalTitle').textContent=kind==='list'?(record?'Edit wishlist':'Create a wishlist'):(record?'Edit saved item':'Add to your vault');
+ $('saveModal').textContent=kind==='list'?'Save wishlist':(record?'Save changes':'Save to vault');
+ if(kind==='list'){
+  selectedEmoji=record?.emoji||'📁';
+  $('modalFields').innerHTML=`<div class="field"><label>WISHLIST NAME</label><input name="name" required maxlength="45" placeholder="e.g. Manga to read" value="${esc(record?.name||'')}"></div><div class="field"><label>CHOOSE AN ICON</label><div class="emoji-picks">${['📁','⛩️','🎞️','✈️','🌐','🎮','🎧','📚','⭐','🎨','💡','🧩','🍿','🗺️','🪐','💜'].map(e=>`<button type="button" data-emoji="${e}" class="${selectedEmoji===e?'chosen':''}">${e}</button>`).join('')}</div></div><div class="field"><label>SHORT DESCRIPTION</label><input name="desc" maxlength="90" placeholder="What's this collection for?" value="${esc(record?.desc||'')}"></div>`;
+ }else{
+  const firstList=record?.listId||activeList||data.lists[0]?.id||'';
+  $('modalFields').innerHTML=`<div class="field"><label>NAME / TITLE *</label><input name="title" required maxlength="100" placeholder="e.g. Attack on Titan, funny reel..." value="${esc(record?.title||'')}"></div><div class="field-row"><div class="field"><label>TYPE</label><select name="type">${['Anime','Reel','Telegram','Website','Video','Game','Other'].map(t=>`<option ${record?.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>WISHLIST</label><select name="listId">${data.lists.map(l=>`<option value="${esc(l.id)}" ${firstList===l.id?'selected':''}>${esc(l.emoji)} ${esc(l.name)}</option>`).join('')}</select></div></div><div class="field"><label>LINK (OPTIONAL)</label><input name="url" type="text" placeholder="https://..." value="${esc(record?.url||'')}"></div><div class="field"><label>USERNAME / ID / EXTRA INFO</label><input name="identifier" maxlength="150" placeholder="@username, episode number, ID..." value="${esc(record?.identifier||'')}"></div><div class="field"><label>NOTES (OPTIONAL)</label><textarea name="notes" maxlength="1000" placeholder="Why did you save this? Add details...">${esc(record?.notes||'')}</textarea></div><label style="display:flex;gap:9px;align-items:center;font-size:11px;color:#c9c6d8"><input type="checkbox" name="favorite" ${record?.favorite?'checked':''} style="accent-color:#9b7bff"> Add to favorites</label>`;
+ }
+ $('modalBackdrop').classList.add('show');
+}
+function closeModal(){$('modalBackdrop').classList.remove('show');editingItem=null;editingList=null}
+function submitModal(e){
+ e.preventDefault();const fd=new FormData(e.target);
+ if(editingList||$('modalTitle').textContent.includes('wishlist')){
+  const name=String(fd.get('name')||'').trim();if(!name)return;
+  if(editingList){Object.assign(editingList,{name,emoji:selectedEmoji,desc:String(fd.get('desc')||'').trim()})}
+  else data.lists.push({id:uid(),name,emoji:selectedEmoji,desc:String(fd.get('desc')||'').trim(),color:'#9b7bff'});
+  closeModal();save();toast('Wishlist saved');return;
+ }
+ const title=String(fd.get('title')||'').trim();if(!title)return;
+ const rawUrl=String(fd.get('url')||'').trim();const url=rawUrl?safeUrl(rawUrl):'';
+ if(rawUrl&&!url){toast('Please enter a valid web link');return}
+ const payload={title,type:String(fd.get('type')),listId:String(fd.get('listId')),url,identifier:String(fd.get('identifier')||'').trim(),notes:String(fd.get('notes')||'').trim(),favorite:fd.get('favorite')==='on'};
+ if(editingItem)Object.assign(editingItem,payload);else data.items.push({id:uid(),created:Date.now(),...payload});
+ closeModal();save();toast(editingItem?'Changes saved':'Added to your vault');
+}
+function exportData(){
+ const blob=new Blob([JSON.stringify({app:'Shadow Vault',version:1,exportedAt:new Date().toISOString(),...data},null,2)],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='shadow-vault-backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported');
+}
+function importData(file){
+ const reader=new FileReader();reader.onload=()=>{try{const d=JSON.parse(reader.result);if(!Array.isArray(d.lists)||!Array.isArray(d.items))throw Error();if(!confirm('Import this backup? It will replace the current vault data.'))return;data={lists:d.lists,items:d.items};save();toast('Backup imported')}catch{toast('That file is not a valid Shadow Vault backup')}};reader.readAsText(file)
+}
+document.addEventListener('click',e=>{
+ const listBtn=e.target.closest('[data-list]');if(listBtn){view=listBtn.dataset.list;activeList=view;render();return}
+ const card=e.target.closest('[data-card]');if(card){view=card.dataset.card;activeList=view;render();return}
+ const nav=e.target.closest('[data-view]');if(nav){view=nav.dataset.view;activeList=null;render();return}
+ const fav=e.target.closest('[data-fav]');if(fav){const x=data.items.find(i=>i.id===fav.dataset.fav);if(x)x.favorite=!x.favorite;save();return}
+ const edit=e.target.closest('[data-edit]');if(edit){openModal('item',data.items.find(i=>i.id===edit.dataset.edit));return}
+ const del=e.target.closest('[data-del]');if(del){if(confirm('Delete this saved item?')){data.items=data.items.filter(i=>i.id!==del.dataset.del);save();toast('Item deleted')}return}
+ const emoji=e.target.closest('[data-emoji]');if(emoji){selectedEmoji=emoji.dataset.emoji;document.querySelectorAll('[data-emoji]').forEach(b=>b.classList.toggle('chosen',b===emoji));return}
+ if(e.target.id==='emptyAdd')openModal('item');
+});
+$('addItemBtn').onclick=()=>openModal('item');
+$('addListSide').onclick=()=>openModal('list');
+$('closeModal').onclick=$('cancelModal').onclick=closeModal;
+$('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});
+$('modalForm').addEventListener('submit',submitModal);
+$('search').addEventListener('input',render);
+$('typeFilter').addEventListener('change',render);
+$('exportBtn').onclick=exportData;
+$('importFile').onchange=e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value=''};
+const importBtn=document.createElement('button');importBtn.className='btn';importBtn.textContent='↧ Import';importBtn.onclick=()=>$('importFile').click();$('exportBtn').after(importBtn);
+render();
+</script>
+</body>
+</html>
